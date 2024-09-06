@@ -31,7 +31,7 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        #question-container {
+       #question-container{
             display: flex;
             align-items: center;
             gap: 20px;
@@ -40,6 +40,7 @@
         
         #question {
             font-size: 22px;
+            margin: 0;
         }
         button {
             font-size: 18px;
@@ -58,6 +59,13 @@
         #side-gif {
             width: 100px;
             height: auto;
+             display: block;
+        }
+
+        #response-gif {
+            display: none;
+            margin-top: 20px;
+            width: 300px;
         }
     </style>
 </head>
@@ -72,7 +80,9 @@
             <button id="yes">Sí</button>
             <button id="no">No</button>
         </div>
+        <img id="response-gif" src="http://olegif.com/bin/gifs/00/32/79.gif" alt="Gif de respuesta" />
     </div>
+    
 
 
     <script>
@@ -80,6 +90,7 @@
         const noButton = document.getElementById('no');
         const buttonsDiv = document.getElementById('buttons');
         const sideGif = document.getElementById('side-gif');
+        const responseGif = document.getElementById('response-gif');
 
 
         // Función para mover el botón "No"
@@ -95,10 +106,7 @@
  yesButton.addEventListener('click', () => {
             sideGif.style.display = 'none'; // Quita el gif de abajo
             buttonsDiv.style.display = 'none'; // Oculta los botones
-            const gifImage = document.createElement('img');
-            gifImage.src = 'http://olegif.com/bin/gifs/00/32/79.gif';
-            gifImage.style.width = '300px';
-            document.body.appendChild(gifImage);
+            responseGif.style.display = 'block';
         });
     </script>
 </body>
