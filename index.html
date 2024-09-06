@@ -17,7 +17,7 @@
             text-align: center;
             font-family: 'Arial', sans-serif;
             color: white;
-            overflow: hidden;
+           
         }
         .container {
             background-color: rgba(0, 0, 0, 0.5);
@@ -26,8 +26,7 @@
             display: flex;
             flex-direction:column:
             align-items: center;
-            position: relative;
-            z-index: 1; 
+           
             
         }
         h1 {
@@ -60,20 +59,18 @@
             position: relative;
         }
         #side-gif {
-            width: 100px;
+             width: 100px;
             height: auto;
-             display: block;
+            display: block;
         }
 
         #response-gif {
             display: none;
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: 0; 
+            margin-top: 20px;
+            width: 300px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -88,7 +85,7 @@
             <button id="yes">Sí</button>
             <button id="no">No</button>
         </div>
-        <img id="response-gif" src="https://pa1.aminoapps.com/6288/ece384467d2722fb8a59028ca76ee2ab0ad2a795_hq.gif" />
+        <img id="response-gif" src="https://pa1.aminoapps.com/6288/ece384467d2722fb8a59028ca76ee2ab0ad2a795_hq.gif" alt="Gif de respuesta" />
     </div>
     
 
@@ -99,7 +96,7 @@
         const buttonsDiv = document.getElementById('buttons');
         const sideGif = document.getElementById('side-gif');
         const responseGif = document.getElementById('response-gif');
-        const container = document.querySelector('.container');
+        const questionContainer = document.getElementById('question-container');
 
 
         // Función para mover el botón "No"
@@ -113,9 +110,10 @@
 
         // Quitar opciones
  yesButton.addEventListener('click', () => {
-            container.style.display = 'none'; // Oculta el contenedor con el texto y los botones
+            sideGif.style.display = 'none'; // Quita el gif de al lado
+            buttonsDiv.style.display = 'none'; // Oculta los botones
             responseGif.style.display = 'block'; // Muestra el gif de respuesta
-            document.body.style.background = 'none'; // Elimina el fondo de la página
+            questionContainer.style.display = 'none'; // Oculta la pregunta y el gif lateral
         });
     </script>
 </body>
