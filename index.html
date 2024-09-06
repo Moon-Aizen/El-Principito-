@@ -3,88 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Te Amo</title>
+    <title>Mi amado Helios</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-image: url('https://teretoaleer.do/wp-content/media/2016/04/el-principito-pelicula-critica-resena-estreno-3-1280x526.jpg.webp');
             background-size: cover;
-            background-position: center;
-            height: 100vh;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
             color: white;
         }
-        #message {
-            margin-top: 50px;
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
             font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .gif-hidden {
+            display: none;
         }
         #question {
             margin-top: 20px;
-            font-size: 28px;
+            font-size: 22px;
         }
-        #buttons {
-            margin-top: 20px;
-        }
-        .btn {
-            font-size: 20px;
+        button {
+            font-size: 18px;
             padding: 10px 20px;
             margin: 10px;
             cursor: pointer;
-            border: none;
+            background-color: #4CAF50;
             color: white;
-            background-color: #ff69b4;
-            border-radius: 10px;
+            border: none;
+            border-radius: 5px;
         }
-        #gif1 {
+        #no {
+            background-color: #f44336;
+            position: relative;
+        }
+        #floating-gif {
             margin-top: 20px;
-        }
-        #gif2 {
-            display: none;
         }
     </style>
 </head>
 <body>
-
-    <div id="message">
-        <p>"Es una locura odiar a todas las rosas solo porque una te pinchó. Renunciar a todos tus sueños solo porque uno de ellos no se cumplió."</p>
-    </div>
-
-    <div id="question">
-        <p>Te amo, ¿Tú a mí también?</p>
-    </div>
-
-    <div id="buttons">
-        <button class="btn" id="yesBtn">Sí</button>
-        <button class="btn" id="noBtn">No</button>
-    </div>
-
-    <div id="gif1">
-        <img src="https://1.bp.blogspot.com/-eHAQqtzO1W0/Xv5kMJZtRlI/AAAAAAAM9fc/G3yjI2SZXh48jYkGTEtgLZ9iIIDffXzyACLcBGAsYHQ/s1600/AS0006942_12.gif" alt="Gif de corazón">
-    </div>
-
-    <div id="gif2">
-        <img src="http://olegif.com/bin/gifs/00/32/79.gif" alt="Gif de amor">
+    <div class="container">
+        <h1>"Es una locura odiar a todas las rosas solo porque una te pinchó. Renunciar a todos tus sueños solo porque uno de ellos no se cumplió."</h1>
+        <div id="question">Te amo, ¿Tú a mí también?</div>
+        <div id="buttons">
+            <button id="yes">Sí</button>
+            <button id="no">No</button>
+        </div>
+        <img id="floating-gif" src="https://1.bp.blogspot.com/-eHAQqtzO1W0/Xv5kMJZtRlI/AAAAAAAM9fc/G3yjI2SZXh48jYkGTEtgLZ9iIIDffXzyACLcBGAsYHQ/s1600/AS0006942_12.gif" alt="Gif" />
     </div>
 
     <script>
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const gif1 = document.getElementById('gif1');
-        const gif2 = document.getElementById('gif2');
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const floatingGif = document.getElementById('floating-gif');
 
-        yesBtn.addEventListener('click', function () {
-            gif1.style.display = 'none';
-            gif2.style.display = 'block';
+        // Función para mover el botón "No"
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
         });
 
-        noBtn.addEventListener('mouseover', function () {
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            noBtn.style.position = 'absolute';
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
+        // Mostrar gif cuando se elige "Sí"
+        yesButton.addEventListener('click', () => {
+            floatingGif.style.display = 'none'; // Quita el gif de abajo
+            const gifImage = document.createElement('img');
+            gifImage.src = 'http://olegif.com/bin/gifs/00/32/79.gif';
+            gifImage.style.width = '300px';
+            document.body.appendChild(gifImage);
         });
     </script>
-    
 </body>
 </html>
