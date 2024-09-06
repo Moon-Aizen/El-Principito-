@@ -3,95 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amor</title>
+    <title>Te Amo</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-image: url('https://images.app.goo.gl/g4bh6e7rkhNSbUfM9');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             font-family: 'Arial', sans-serif;
             text-align: center;
-        }
-
-        h1 {
+            background-image: url('https://teretoaleer.do/wp-content/media/2016/04/el-principito-pelicula-critica-resena-estreno-3-1280x526.jpg.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             color: white;
-            font-size: 2rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-
-        #gifDebajo {
+        #message {
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        #question {
+            margin-top: 20px;
+            font-size: 28px;
+        }
+        #buttons {
             margin-top: 20px;
         }
-
-        #gifSi {
-            display: none;
-        }
-
-        #pregunta {
-            color: white;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        button {
+        .btn {
+            font-size: 20px;
             padding: 10px 20px;
-            font-size: 1.2rem;
             margin: 10px;
             cursor: pointer;
             border: none;
+            color: white;
+            background-color: #ff69b4;
             border-radius: 10px;
-            transition: transform 0.2s;
         }
-
-        #si {
-            background-color: #28a745;
-            color: white;
+        #gif1 {
+            margin-top: 20px;
         }
-
-        #no {
-            background-color: #dc3545;
-            color: white;
-            position: absolute;
+        #gif2 {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <h1>Es una locura odiar a todas las rosas solo porque una te pinchó. Renunciar a todos tus sueños solo porque uno de ellos no se cumplió.</h1>
-
-    <div id="pregunta">Te amo, ¿Tú a mí también?</div>
-    
-    <div>
-        <button id="si">Sí</button>
-        <button id="no">No</button>
+    <div id="message">
+        <p>"Es una locura odiar a todas las rosas solo porque una te pinchó. Renunciar a todos tus sueños solo porque uno de ellos no se cumplió."</p>
     </div>
-    
-    <img id="gifDebajo" src="https://images.app.goo.gl/9pvtpPLoAUSt8ypf7" alt="GIF Debajo" width="300">
-    <img id="gifSi" src="https://images.app.goo.gl/u8UzuFWBbe9eKHrA8" alt="GIF de Sí" width="300">
+
+    <div id="question">
+        <p>Te amo, ¿Tú a mí también?</p>
+    </div>
+
+    <div id="buttons">
+        <button class="btn" id="yesBtn">Sí</button>
+        <button class="btn" id="noBtn">No</button>
+    </div>
+
+    <div id="gif1">
+        <img src="https://1.bp.blogspot.com/-eHAQqtzO1W0/Xv5kMJZtRlI/AAAAAAAM9fc/G3yjI2SZXh48jYkGTEtgLZ9iIIDffXzyACLcBGAsYHQ/s1600/AS0006942_12.gif" alt="Gif de corazón">
+    </div>
+
+    <div id="gif2">
+        <img src="http://olegif.com/bin/gifs/00/32/79.gif" alt="Gif de amor">
+    </div>
 
     <script>
-        const btnNo = document.getElementById("no");
-        const btnSi = document.getElementById("si");
-        const gifDebajo = document.getElementById("gifDebajo");
-        const gifSi = document.getElementById("gifSi");
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const gif1 = document.getElementById('gif1');
+        const gif2 = document.getElementById('gif2');
 
-        btnNo.addEventListener("mouseover", function() {
-            const x = Math.floor(Math.random() * (window.innerWidth - btnNo.offsetWidth));
-            const y = Math.floor(Math.random() * (window.innerHeight - btnNo.offsetHeight));
-            btnNo.style.transform = `translate(${x}px, ${y}px)`;
+        yesBtn.addEventListener('click', function () {
+            gif1.style.display = 'none';
+            gif2.style.display = 'block';
         });
 
-        btnSi.addEventListener("click", function() {
-            gifDebajo.style.display = "none";
-            gifSi.style.display = "block";
+        noBtn.addEventListener('mouseover', function () {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
         });
     </script>
+    
 </body>
 </html>
