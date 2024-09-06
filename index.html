@@ -78,11 +78,12 @@
             noButton.style.top = y + 'px';
         });
 
-        // Mostrar gif cuando se elige "Sí"
-        yesButton.addEventListener('click', () => {
+        // Quitar opciones
+ yesButton.addEventListener('click', () => {
             floatingGif.style.display = 'none'; // Quita el gif de abajo
+            buttonsDiv.style.display = 'none'; // Oculta los botones
             const gifImage = document.createElement('img');
-            gifImage.src = 'https://giffiles.alphacoders.com/137/137443.gif';
+            gifImage.src = 'http://olegif.com/bin/gifs/00/32/79.gif';
             gifImage.style.width = '300px';
             document.body.appendChild(gifImage);
         });
