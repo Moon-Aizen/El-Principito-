@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi amor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://images.app.goo.gl/g4bh6e7rkhNSbUfM9');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        #gifDebajo {
+            margin-top: 20px;
+        }
+
+        #gifSi {
+            display: none;
+        }
+
+        #pregunta {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        #si {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Es una locura odiar a todas las rosas solo porque una te pinchó. Renunciar a todos tus sueños solo porque uno de ellos no se cumplió.</h1>
+
+    <div id="pregunta">Te amo, ¿Tú a mí también?</div>
+    
+    <div>
+        <button id="si">Sí</button>
+        <button id="no">No</button>
+    </div>
+    
+    <img id="gifDebajo" src="https://images.app.goo.gl/9pvtpPLoAUSt8ypf7" alt="GIF Debajo" width="300">
+    <img id="gifSi" src="https://images.app.goo.gl/u8UzuFWBbe9eKHrA8" alt="GIF de Sí" width="300">
+
+    <script>
+        const btnNo = document.getElementById("no");
+        const btnSi = document.getElementById("si");
+        const gifDebajo = document.getElementById("gifDebajo");
+        const gifSi = document.getElementById("gifSi");
+
+        btnNo.addEventListener("mouseover", function() {
+            const x = Math.floor(Math.random() * (window.innerWidth - btnNo.offsetWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - btnNo.offsetHeight));
+            btnNo.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        btnSi.addEventListener("click", function() {
+            gifDebajo.style.display = "none";
+            gifSi.style.display = "block";
+        });
+    </script>
+</body>
+</html>
